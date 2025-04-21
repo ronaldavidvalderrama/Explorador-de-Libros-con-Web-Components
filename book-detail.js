@@ -1,17 +1,44 @@
+/**
+ * Web Component <book-detail>
+ * 
+ * Representa una vista tipo modal que muestra información detallada de un libro:
+ * - Título
+ * - Autor
+ * - Imagen de portada
+ * - Fecha de publicación
+ * - Género
+ * - Resumen
+ * - Lista de citas
+ * 
+ * Incluye un botón para volver a la vista de tarjetas de libros.
+ * Al presionarlo, emite el evento personalizado 'volver-a-cards'.
+ */
+
 class BookDetail extends HTMLElement {
     constructor() {
         super();
+        // Crea el Shadow DOM para encapsular estilos y estructura
         this.attachShadow({ mode: 'open' });
     }
 
+    /**
+     * Se ejecuta cuando el componente es añadido al DOM.
+     * Renderiza el modal e instala el listener del botón "Volver".
+     */
     connectedCallback() {
         this.render();
+
+        // Emite el evento para volver a la vista de cards
         this.shadowRoot.querySelector('#volver-btn').addEventListener('click', () => {
             const event = new CustomEvent('volver-a-cards', { bubbles: true });
             this.dispatchEvent(event);
         });
     }
 
+    /**
+     * Renderiza el contenido HTML y CSS del modal en el Shadow DOM.
+     * Toma los datos del libro desde los atributos del componente.
+     */
     render() {
         this.shadowRoot.innerHTML = `
             <style>
@@ -77,4 +104,5 @@ class BookDetail extends HTMLElement {
     }
 }
 
+// Define el componente personalizado <book-detail>
 customElements.define('book-detail', BookDetail);
