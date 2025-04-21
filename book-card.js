@@ -16,10 +16,6 @@ class BookCard extends HTMLElement {
                     author: this.getAttribute('author'),
                     coverUrl: this.getAttribute('coverUrl'),
                     synopsis: this.getAttribute('synopsis'),
-                    publishedDate: this.getAttribute('publishedDate'),
-                    genre: this.getAttribute('genre'),
-                    summary: this.getAttribute('summary'),
-                    quotes: JSON.parse(this.getAttribute('quotes') || '[]')
                 }
             }
         }));

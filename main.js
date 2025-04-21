@@ -12,11 +12,8 @@ function renderCards() {
     card.setAttribute('author', libro.author);
     card.setAttribute('coverUrl', libro.coverUrl);
     card.setAttribute('synopsis', libro.synopsis);
-    card.setAttribute('publishedDate', libro.publishedDate);
-    card.setAttribute('genre', libro.genre);
-    card.setAttribute('summary', libro.summary);
-    card.setAttribute('quotes', JSON.stringify(libro.quotes));
 
+    
     card.addEventListener('click', () => {
       renderDetail(libro);
     });
